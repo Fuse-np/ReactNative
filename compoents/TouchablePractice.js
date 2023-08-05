@@ -19,7 +19,7 @@ const TouchablePractice = () => {
           style={styles.buttonImageIconStyle}
         />
         <View style={styles.buttonIconSeparatorStyle} />
-        <Text style={styles.buttonTextStyle}>Login Using Facebook</Text>
+        <Text style={styles.buttonTextStyle}>Login Using Google plus</Text>
       </TouchableOpacity>
     </View>
   );
