@@ -1,34 +1,19 @@
-import { StyleSheet, Text, View } from "react-native";
-import ViewBoxesWithColorAndText from "./components/ViewBoxesWithColorAndText";
-import DisplayandImage from "./components/DisplayandImage";
-import LotsOfGreeting from "./components/LotsOfGreeting";
-import CustomText from "./components/CustomText";
-import Counter from "./components/Counter";
-import IncrementCounter from "./components/IncrementCounter";
-import MyInput from "./components/Myinput";
-import From from "./components/From";
-import Login from "./components/Login";
+import { StyleSheet, Text, View } from 'react-native';
+import TouchablePractice from './components/Touchablepractice';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      {/* <ViewBoxesWithColorAndText/> */}
-      {/* <DisplayandImage/> */}
-      {/* <LotsOfGreeting/> */}
-      {/* <CustomText/> */}
-      {/* <Counter/> */}
-      {/* <MyInput/> */}
-      {/* <IncrementCounter/> */}
-      <Login/>
-      {/* <From/>*/}
+      <TouchablePractice/>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container:{
-     flex:1,   
-     justifyContent:'center',    
-     alignItems:'center'   
-  }
- })
+
+   container: {
+     flex: 1,
+     alignItems: 'center',
+     justifyContent: 'center',
+   }
+})
