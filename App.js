@@ -5,6 +5,8 @@ import UseEffectFlatList from './components/UseEffectFlatList';
 import RandomUnderScreen from './components/RandomUnderScreen';
 import FlatList_Example1 from './components/FlatList_Example1';
 import FlastListAPI from './components/FlastListAPI';
+import News from './components/News';
+import ProductScreen from './components/ProductScreen';
 
 export default function App() {
   return (
@@ -13,7 +15,9 @@ export default function App() {
       {/* <UseEffectFlatList/> */}
       {/* <RandomUnderScreen/> */}
       {/* <FlatList_Example1/> */}
-      { <FlastListAPI/> }
+      {/* <FlastListAPI/> */}
+      {/* <News/> */}
+      { <ProductScreen/> }
 
     </View>
   );
