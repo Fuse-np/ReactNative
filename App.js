@@ -1,32 +1,20 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-/*import TouchablePractice from './components/Touchablepractice';*/
-import UseEffectFlatList from './components/UseEffectFlatList';
-import RandomUnderScreen from './components/RandomUnderScreen';
-import FlatList_Example1 from './components/FlatList_Example1';
-import FlastListAPI from './components/FlastListAPI';
-import News from './components/News';
-import ProductScreen from './components/ProductScreen';
+import { View, Text, Button} from 'react-native'
+import React from 'react'
+import { NavigationContainer } from "@react-navigation/native"
+import {createNativeStackNavigator} from "@react-navigation/native-stack"
+import HomeScreen from './Screens/HomeScreen'
+import DetailsScreen from './Screens/DetailsScreen'
 
-export default function App() {
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      {/* <TouchablePractice/> */}
-      {/* <UseEffectFlatList/> */}
-      {/* <RandomUnderScreen/> */}
-      {/* <FlatList_Example1/> */}
-      {/* <FlastListAPI/> */}
-      {/* <News/> */}
-      { <ProductScreen/> }
+    
+    <Stack.Navigator initialRouteName='Home'>
+     <Stack.Screen name='Home' component={HomeScreen} options={{title: 'Overview'}}/>
+     <Stack.Screen name='Details' component={DetailsScreen}/>
+    </Stack.Navigator>
 
-    </View>
-  );
+  )
 }
-/* const styles = StyleSheet.create({
 
-   /* container: {
-    flex: 1,
-     alignItems: 'center',
-     justifyContent: 'center',
-   } 
-}) */
+export default App
