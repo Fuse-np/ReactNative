@@ -1,12 +1,12 @@
 let a = 2;
 let b = 3;
-let templateString = `The result of ${a}+${b} 
-is ${a+b}`;
+let templateString = `The result of ${a} + ${b} 
+is ${a + b}`;
 
 let multilineString = `
-First line
+    First line
 Second line
-And thrid line
+And third line
 `;
 
 console.log(templateString);

@@ -13,7 +13,7 @@ const ThirdPage = ({navigation}) => {
             <Text>{'\n'}</Text>
           <Button title='Go to SecondPage' onPress={()=>navigation.navigate('SecondPage')}/>
             <Text>{'\n'}</Text>
-          <Button title='Reset navigate to FirstPage' onPress={()=>navigation.navigate('FisrtPage')}/>
+          <Button title='Reset navigate to FirstPage' onPress={()=>navigation.navigate('FirstPage')}/>
         </View>
        )
 }
