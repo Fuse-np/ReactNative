@@ -1,70 +1,90 @@
-import 'react-native-gesture-handler';
-import { View, Text , Linking} from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem} from '@react-navigation/drawer';
 
-import FirstPage from './pages/FirstPage';
-import SecondPage from './pages/SecondPage';
-import CustomSideBarMenu from './pages/CustomSideBarMenu';
+import { NavigationContainer } from '@react-navigation/native'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs'
+import { color } from 'react-native-reanimated'
 
-function CustomDrawerContent (props){
+function Feed(){
   return(
-    <DrawerContentScrollView {...props}>
-      <DrawerItemList {...props}/>
-      <DrawerItem label= "Help" onPress={()=> Linking.openURL('https://reactnative.dev')}/>
-
-    </DrawerContentScrollView>
+    <View style ={{flex:1, justifyContent:'center', alignItems:'center'}}>
+      <Text>Feed</Text>
+    </View>
   )
 }
 
-function FirstPageStack(){
+function Proflie(){
   return(
-
-  <Stack.Navigator screenOptions={{headerShown:false}}>
-    <Stack.Screen name='First Page'component={FirstPage}/>
-  </Stack.Navigator>
-
-  );
+    <View style ={{flex:1, justifyContent:'center', alignItems:'center'}}>
+      <Text>Proflie</Text>
+    </View>
+  )
 }
 
-function SecondPageStack(){
+function Notifications(){
   return(
-
-    <Stack.Navigator screenOptions={{headerShown:false}}>
-    <Stack.Screen name='Second Page'component={SecondPage}/>
-  </Stack.Navigator>
-
-  );
+    <View style ={{flex:1, justifyContent:'center', alignItems:'center'}}>
+      <Text>Notification</Text>
+    </View>
+  )
 }
 
+const Tab = createMaterialBottomTabNavigator();
 
-const Drawer = createDrawerNavigator();
-const Stack  = createNativeStackNavigator();
-
-function MyDrawer(){
+function MyTab(){
   return(
-    <Drawer.Navigator 
-    drawerContent={(props)=> <CustomSideBarMenu {...props}/> }
-    screenOptions={{
-      drawerStyle:{
-        backgroundColor:'#BFF7F0',
-        width: 240,
-      }
-    }}>
-      <Drawer.Screen name='FirstDrawer' component={FirstPageStack} options={{drawerLabel:'First Page Option'}}/>
-      <Drawer.Screen name='SecondDrawer' component={SecondPageStack} options={{drawerLabel:'Second Page Option'}}/>
-    </Drawer.Navigator>
-  );
+    <Tab.Navigator
+      initialRouteName='Feed'
+      activeColor='#F045D5'
+      labelStyle = {{fontSize:12}}
+      style ={{backgroundColor:'tomato'}}
+    >
+       <Tab.Screen
+       name = 'Feed'
+       component= {Feed}
+       options={{
+        tabBarLabel:'Home',
+        tabBarIcon : ({color})=>(
+          <MaterialCommunityIcons name='home' color={color} size={26}/>
+
+        )
+       }}
+      />
+      <Tab.Screen
+       name = 'Notifications'
+       component= {Notifications}
+       options={{
+        tabBarLabel:'Updates',
+        tabBarIcon : ({color})=>(
+        <MaterialCommunityIcons name='bell' color={color} size={26}/>
+        )
+       }}
+      />
+      <Tab.Screen
+       name = 'Proflie'
+       component= {Proflie}
+       options={{
+        tabBarLabel:'Profile',
+        tabBarIcon : ({color})=>(
+          <MaterialCommunityIcons name='account' color={color} size={26}/>
+        )
+       }}
+      />
+    </Tab.Navigator>
+  )
 }
+
 
 const App = () => {
   return (
     <NavigationContainer>
-      <MyDrawer/>
+      <MyTab/>
     </NavigationContainer>
   )
 }
 
 export default App
+
+const styles = StyleSheet.create({})
