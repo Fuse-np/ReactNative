@@ -1,34 +1,28 @@
 import 'react-native-gesture-handler';
-import { View, Text } from 'react-native'
+import { View, Text , Linking} from 'react-native'
 import React from 'react'
-
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem} from '@react-navigation/drawer';
 
 import FirstPage from './pages/FirstPage';
 import SecondPage from './pages/SecondPage';
+import CustomSideBarMenu from './pages/CustomSideBarMenu';
 
-function Feed(){
+function CustomDrawerContent (props){
   return(
-    <View style={{flex:1, justifyContent:'center', alignItems:'center'}}>
-        <Text>Feed</Text>
-    </View>
-  );
-}
+    <DrawerContentScrollView {...props}>
+      <DrawerItemList {...props}/>
+      <DrawerItem label= "Help" onPress={()=> Linking.openURL('https://reactnative.dev')}/>
 
-function Article(){
-  return(
-    <View style={{flex:1, justifyContent:'center', alignItems:'center'}}>
-        <Text>Article</Text>
-    </View>
-  );
+    </DrawerContentScrollView>
+  )
 }
 
 function FirstPageStack(){
   return(
 
-  <Stack.Navigator screenOptions={{headerStyle:{backgroundColor:'#047931'}}}>
+  <Stack.Navigator screenOptions={{headerShown:false}}>
     <Stack.Screen name='First Page'component={FirstPage}/>
   </Stack.Navigator>
 
@@ -38,7 +32,7 @@ function FirstPageStack(){
 function SecondPageStack(){
   return(
 
-    <Stack.Navigator screenOptions={{headerStyle:{backgroundColor:'#047931'}}}>
+    <Stack.Navigator screenOptions={{headerShown:false}}>
     <Stack.Screen name='Second Page'component={SecondPage}/>
   </Stack.Navigator>
 
@@ -51,7 +45,9 @@ const Stack  = createNativeStackNavigator();
 
 function MyDrawer(){
   return(
-    <Drawer.Navigator screenOptions={{
+    <Drawer.Navigator 
+    drawerContent={(props)=> <CustomSideBarMenu {...props}/> }
+    screenOptions={{
       drawerStyle:{
         backgroundColor:'#BFF7F0',
         width: 240,

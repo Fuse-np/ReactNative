@@ -8,13 +8,10 @@ const SecondPage = ({navigation}) => {
     return(
         <View style = {styles.container}>
           <Text style = {styles.textStyle}>This is the Second Page of the App</Text>
-            <Text>{'\n'}</Text>
+
           <Button title='Go Back' onPress={()=>navigation.goBack()}/>
-            <Text>{'\n'}</Text>
-          <Button title='Go to SecondPage...Again' onPress={()=>navigation.push('SecondPage')}/>
-            <Text>{'\n'}</Text>
+          <Button title='Go to SecondPage...Again' onPress={()=>navigation.push('SecondDrawer')}/>
           <Button title='Go to FirstPage' onPress={()=>navigation.navigate('FirstPage')}/>
-            <Text>{'\n'}</Text>
           <Button title='Go to ThirdPage' onPress={()=>navigation.navigate('ThirdPage')}/>
         </View>
        )
