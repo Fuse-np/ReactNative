@@ -22,6 +22,7 @@ const CustomSideBarMenu = (props) => {
                 <Image source={{uri:BASE_PATH + 'star_filled.png'}} style={styles.iconStyle}/>
             </View>
         </DrawerContentScrollView>
+        <Text style={{textAlign:"center", color:"gray", fontSize:16}}>www.tni.ac.th</Text>
     </SafeAreaView>
   )
 }
